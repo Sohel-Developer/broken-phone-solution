@@ -69,6 +69,8 @@ document
     }
   });
 
+/* Spiner */
+
 const toggleSpinner = (isLoading) => {
   const loaderSection = document.getElementById("loader");
   if (isLoading) {
@@ -83,21 +85,18 @@ document.getElementById("btn-show-all").addEventListener("click", function () {
   processSearch();
 });
 
+/* Modal Data Load */
 const loadPhoneDetails = async (id) => {
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
-  console.log(id, url);
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
   displayPhoneDetails(data.data);
 };
-
+/* Display Modal Data */
 const displayPhoneDetails = (phone) => {
-  console.log(phone);
   const modalTitle = document.getElementById("phoneDetailModalLabel");
   modalTitle.innerText = phone.name;
   const phoneDetails = document.getElementById("phone-details");
-  console.log(phone.mainFeatures.sensors[0]);
   phoneDetails.innerHTML = `
         <p>Release Date: ${phone.releaseDate}</p>
         <p>Storage: ${phone.mainFeatures.storage}</p>
@@ -111,5 +110,3 @@ const displayPhoneDetails = (phone) => {
         }</p>
     `;
 };
-
-loadPhones("apple");
