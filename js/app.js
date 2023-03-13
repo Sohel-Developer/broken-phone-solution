@@ -26,9 +26,10 @@ const displayPhones = (phones, dataLimit) => {
   }
   // display all phones
   phones.forEach((phone) => {
+    console.log(phone);
     const phoneDiv = document.createElement("div");
     phoneDiv.classList.add("col");
-    phonesContainer.innerHTML = `
+    phoneDiv.innerHTML = `
         <div class="card p-4">
             <img src="${phone.images}" class="card-img-top" alt="...">
             <div class="card-body">
