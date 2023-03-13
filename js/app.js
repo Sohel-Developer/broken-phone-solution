@@ -26,7 +26,6 @@ const displayPhones = (phones, dataLimit) => {
   }
   // display all phones
   phones.forEach((phone) => {
-    console.log(phone);
     const phoneDiv = document.createElement("div");
     phoneDiv.classList.add("col");
     phoneDiv.innerHTML = `
@@ -85,9 +84,11 @@ document.getElementById("btn-show-all").addEventListener("click", function () {
 });
 
 const loadPhoneDetails = async (id) => {
-  const url = `www.openapi.programming-hero.com/api/phone/${id}`;
+  const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+  console.log(id, url);
   const res = await fetch(url);
   const data = await res.json();
+  console.log(data);
   displayPhoneDetails(data.data);
 };
 
